@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.163.0/containers/python-3
+{
+	"name": "devcontainer",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+			"VARIANT": "3.10"
+		}
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"ms-python.black-formatter",
+		"ms-azuretools.vscode-docker",
+		"github.copilot"
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		8888
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "poetry install",
+	// If no remoteUser is supplied, it runs as root. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode",
+	// For GPU support use the following:
+	// "runArgs": ["--gpus", "all"]
+	"features": {
+		"docker-from-docker": {
+			"version": "latest",
+			"moby": true
+		}
+	},
+	"containerEnv": {
+		"DEVCONTAINER_PATH_HOST": "${localWorkspaceFolder}"
+	}
+}
