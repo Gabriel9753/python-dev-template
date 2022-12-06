@@ -1,5 +1,4 @@
-ARG VARIANT=3.10
-FROM mcr.microsoft.com/vscode/devcontainers/python:${VARIANT}
+FROM mcr.microsoft.com/devcontainers/python:3.11
 # For GPU support use the following instead of the above:
 # FROM nvidia/cuda:11.3.1-cudnn8-runtime-ubuntu20.04
 
