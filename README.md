@@ -4,6 +4,7 @@
 # Examples of Python libraries
 
 <h3 style="color: green;">Prettytable example</h3>
+
 ```python
 from prettytable import PrettyTable
 
