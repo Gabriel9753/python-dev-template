@@ -15,7 +15,15 @@
 		"ms-python.vscode-pylance",
 		"ms-python.black-formatter",
 		"ms-azuretools.vscode-docker",
-		"github.copilot"
+		"github.copilot",
+		"alefragnani.bookmarks",
+		"randomfractalsinc.vscode-data-preview",
+		"ms-toolsai.jupyter",
+		"ms-vsliveshare.vsliveshare",
+		"2gua.rainbow-brackets",
+		"jerrygoyal.shortcut-menu-bar",
+		"gruntfuggly.todo-tree",
+		"tonybaloney.vscode-pets"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
