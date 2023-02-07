@@ -12,7 +12,7 @@ RUN apt-get update \
 #     && pip install pip==22.3 \
 #     && pip --no-cache-dir install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 
-COPY ../requirements.txt /code/requirements.txt
-WORKDIR /code
+COPY ../requirements.txt /workspaces/python-dev-template/requirements.txt
+WORKDIR /workspaces/python-dev-template
 RUN pip install -r requirements.txt
-COPY . /code
+COPY . /workspaces/python-dev-template

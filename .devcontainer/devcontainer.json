@@ -1,13 +1,10 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.163.0/containers/python-3
 {
-	"name": "devcontainer",
+	"name": "project name here",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"context": "..",
-		"args": {
-			"VARIANT": "3.11"
-		}
+		"context": ".."
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -35,13 +32,4 @@
 	// "remoteUser": "vscode",
 	// For GPU support use the following:
 	// "runArgs": ["--gpus", "all"]
-	"features": {
-		"docker-from-docker": {
-			"version": "latest",
-			"moby": true
-		}
-	},
-	"containerEnv": {
-		"DEVCONTAINER_PATH_HOST": "${localWorkspaceFolder}"
-	}
 }
