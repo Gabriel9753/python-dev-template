@@ -4,32 +4,139 @@
 	"name": "project name here",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"context": ".."
+		"context": "..",
+		// Use 'args' to provide build arguments that can be used in your Dockerfile.
+		"args": {
+			"PYTHON_VERSION": "3.11",
+		}
 	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-python.python",
-		"ms-python.vscode-pylance",
-		"ms-python.black-formatter",
-		"ms-azuretools.vscode-docker",
-		"github.copilot",
-		"alefragnani.bookmarks",
-		"randomfractalsinc.vscode-data-preview",
-		"ms-toolsai.jupyter",
-		"ms-vsliveshare.vsliveshare",
-		"2gua.rainbow-brackets",
-		"jerrygoyal.shortcut-menu-bar",
-		"gruntfuggly.todo-tree",
-		"tonybaloney.vscode-pets"
-	],
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// Uncomment the 'runArgs' to add Docker run arguments. Can be used to add device access, environment variables, etc.
+	// "runArgs": [
+	// Uncomment the following line to support GPU computation
+	// "--gpus", "all",
+	// Uncomment the following line to mount an additional volume
+	// "-v", "local-volume-name:/path/in/container",
+	// Uncomment the following line to add an environment variable
+	// "-e", "MY_ENV_VAR=MY_ENV_VALUE"
+	// ],
+	// Uncomment 'mounts' to mount local files or folders into the container
+	// "mounts": [
+	// Bind mount a workspace folder into the container. ${localWorkspaceFolder} is a variable VS Code provides
+	// "source=${localWorkspaceFolder},target=/path/in/container,type=bind,consistency=cached",
+	// ],
 	"forwardPorts": [
-		8888
+		8888,
+		// Uncomment the following lines to forward additional ports
+		// 8080,
+		// 5000
 	],
-	// Use 'postCreateCommand' to run commands after the container is created.
+	// 'postCreateCommand' is used to run commands after the container is created.
+	// Uncomment the following line to run 'poetry install' after the container is created
 	// "postCreateCommand": "poetry install",
-	// If no remoteUser is supplied, it runs as root. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// Set 'remoteUser' to a specific user. By default, it runs as root. This could be important for file permissions.
 	// "remoteUser": "vscode",
-	// For GPU support use the following:
-	// "runArgs": ["--gpus", "all"]
+	"customizations": {
+		"vscode": {
+			// #################################################
+			// ############# Extensions for VSCode #############
+			// #################################################
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.black-formatter",
+				"ms-toolsai.jupyter",
+				"ms-vsliveshare.vsliveshare",
+				// "ms-python.pylint",
+				// "eamodio.gitlens",
+				// "davidanson.vscode-markdownlint",
+				// "ms-kubernetes-tools.vscode-kubernetes-tools",
+				// "redhat.vscode-yaml",
+				// "coenraads.bracket-pair-colorizer",
+				// "ms-azuretools.vscode-docker",
+				// "github.copilot",
+				// "alefragnani.bookmarks",
+				// "randomfractalsinc.vscode-data-preview",
+				// "2gua.rainbow-brackets",
+				// "gruntfuggly.todo-tree",
+				// "tonybaloney.vscode-pets",
+			],
+			// #################################################
+			// ############## Settings for VSCode ##############
+			// #################################################
+			"settings": {
+				// This will set the default shell to bash instead of sh
+				"terminal.integrated.shell.linux": "/bin/bash",
+				// This will set the path to the python binary. Adjust this if necessary.
+				"python.pythonPath": "/usr/local/bin/python",
+				// Enable pylint linting
+				"python.linting.pylintEnabled": true,
+				// Enable linting in general
+				"python.linting.enabled": true,
+				// enable auto-formatting on save
+				"editor.formatOnSave": true,
+				// set the Python test framework to pytest
+				// "python.testing.pytestEnabled": true,
+				// Adjust the editor's default tab size
+				// "editor.tabSize": 4,
+				// Enable auto completion for Python
+				// "python.autoComplete.addBrackets": true,
+				// Set the default interpreter for Python
+				// "python.defaultInterpreterPath": "/usr/local/bin/python",
+				// Enable auto update for Python extensions
+				// "python.autoUpdateLanguageServer": true,
+				// Enable or disable the use of a persistent environment for the terminal
+				// "python.terminal.persistentEnvironment": true,
+				// Display errors as warnings in the Problems pane
+				// "python.analysis.errors": ["..."],
+				// Enable type checking
+				// "python.analysis.typeCheckingMode": "basic",
+				// Set the default line ending
+				// "files.eol": "\n",
+				// Set the default character set encoding
+				// "files.encoding": "utf8",
+				// Set the Python language server
+				// "python.languageServer": "Pylance",
+				// Set the formatting provider
+				"python.formatting.provider": "black",
+				// Enable or disable automatic activation of the Python virtual environment
+				// "python.autoComplete.autoActivation": "on",
+				// Sort imports on save (requires Python extension and isort package)
+				"python.sortImports.enabled": true,
+				"editor.codeActionsOnSave": {
+					"source.organizeImports.python": true
+				},
+				// Enable or disable IntelliSense suggestions
+				// "editor.quickSuggestions": { "other": true, "comments": false, "strings": false },
+				// Adjust the cursor animation style
+				// "editor.cursorBlinking": "blink",
+				// Adjust the cursor style
+				// "editor.cursorStyle": "block",
+				// Control the rendering of line numbers
+				// "editor.lineNumbers": "on",
+				// Highlight modified tabs with a red dot
+				// "workbench.editor.highlightModifiedTabs": true,
+				// Set the terminal's default locations
+				// "terminal.integrated.defaultLocation": "editor",
+				// Control the letter spacing in pixels
+				// "editor.letterSpacing": 0,
+				// Control the line height
+				// "editor.lineHeight": 20,
+				// Enables the display of reference information when the mouse hovers over it
+				// "editor.hover.enabled": true,
+				// Enable or disable the use of linters for Python
+				// "python.linting.enabled": true,
+				// Enable or disable the use of specific linters
+				// "python.linting.pylintEnabled": true,
+				// "python.linting.flake8Enabled": true,
+				// Set the maximum line length for linters
+				// "python.linting.pylintArgs": ["--max-line-length=120"],
+				// "python.linting.flake8Args": ["--max-line-length=120"],
+				// Enable or disable formatting on save
+				// "editor.formatOnSave": true
+			},
+		}
+	},
+	// 'shutdownAction' defines what happens when the VS Code window is closed. Default is 'none'.
+	//  Uncomment the following line to stop the container when the VS Code window is closed
+	// "shutdownAction": "stopContainer"
 }
